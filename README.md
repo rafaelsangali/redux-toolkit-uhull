@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project 
 
 ## Getting Started
 
@@ -12,23 +12,41 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Architecture
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+</br>
 
-## Learn More
+- ./pages  - where u can see the pages render
 
-To learn more about Next.js, take a look at the following resources:
+- ./redux - where is the redux logic located
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+</br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How is it works ?
 
-## Deploy on Vercel
+</br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1 - First you need to configure the "store"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2 - "store": is a function that receives an object. This object contains the reducers that will contain the "slicers", u can check on ./redux/store.ts
+
+3- Don't forget to wrap the entire application in a provider and pass the store as a property, check on ./pages/_app.tsx
+
+4- "slicers": are also a function that receives an object in which it should have the initial state, and the functions that change this state, check on ./redux/slicers/counterSlice.ts
+
+5- After that the component will need to import the useDispatch hook that will execute the action of executing the slicer action. In addition to using the useSelector hook that allows you to extract data from the Redux store state to display the initial state, check on ./pages/index.tsx
+
+</br>
+
+
+## The concept
+
+</br>
+
+I made a sketch of the redux flow for me to understand the concept that it works
+
+</br>
+
+<img src="./public/redux.png">
+
