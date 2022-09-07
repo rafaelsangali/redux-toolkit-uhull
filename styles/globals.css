@@ -21,6 +21,39 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: #191919;
   }
+}
+
+.container{
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  margin: -25px 0 0 -25px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.center > p {
+  margin: 15px 0;
+  font-size: 100px;
+}
+
+.center > button {
+  margin: 15px 0;
+  padding: 8px 0;
+  width: 150px;
+}
+
+.center > a {
+  margin: 15px 0;
+  padding: 8px 0;
+  width: 150px;
+  background: black;
 }
